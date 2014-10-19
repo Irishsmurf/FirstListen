@@ -47,7 +47,7 @@ function getJson($url)
 
 // Placeholders
 $username = 'Irishsmurf';
-$artist = 'Muse';
+$artist = urlencode('Brand New');
 
 $lastfmJSON = 'http://ws.audioscrobbler.com/2.0/?method=user.getartisttracks&user='.$username.'&artist='.$artist.'&api_key='.$config['api_key'].'&format=json';
 
