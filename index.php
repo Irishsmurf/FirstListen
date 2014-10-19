@@ -1,8 +1,14 @@
 <?php
 
-error_reporting(E_ALL);
-ini_set('display_errors', '1');
 include_once('config.inc.php');
+
+if($debug)
+{
+    error_reporting(E_ALL);
+    ini_set('display_errors', '1');
+}
+
+
 
 if(isset($_POST['artist']) && isset($_POST['username']))
 {
@@ -14,6 +20,10 @@ else
     $username = 'Irishsmurf';
     $artist = 'Brand New';
 }
+
+if($debug)
+    print_r($_POST);
+
 
 function getLastSong($url)
 {
@@ -34,7 +44,7 @@ function getLastSong($url)
 
     $song['date'] = $track->{'date'}->{'#text'};
     $song['artist'] = $track->{'artist'}->{'#text'};
-    $song['song'] = $track->{'name'}.' UTC';
+    $song['song'] = $track->{'name'};
     $song['album'] = $track->{'album'}->{'#text'};
 
     return $song;
@@ -84,7 +94,13 @@ echo $lastSong['artist'].' - '.$lastSong['song'].' '.$lastSong['date'];
     <header>
         <h2>Last.fm - First time listened to a band </h2>
     </header>
-        <p> Lorum </p>
+        <p>
+            <form action="index.php" method='post'>
+            <input type="text" name="username" placeholder='Irishsmurf'>
+            <input type="text" name="artist" placeholder='Brand New'>
+            <input type="submit" value="Submit">
+            </form>
+        </p>
     </section>
     </div>
     </div>
