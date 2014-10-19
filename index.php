@@ -28,6 +28,15 @@ if($debug)
 function getLastSong($url)
 {
     $json = getJson($url);
+
+    //Error checking
+
+    if(isset($json->{'error'}))
+    {
+        $error['error'] = true;
+        $error['message'] = $json->{'message'};
+        return $error;    
+    }
     //Getting the number of pages.
     $pagenumber = $json->{'artisttracks'}->{'@attr'}->{'totalPages'};
     $json = getJson($url.'&page='.$pagenumber);
@@ -73,6 +82,8 @@ $artist = urlencode($artist);
 $lastfmJSON = 'http://ws.audioscrobbler.com/2.0/?method=user.getartisttracks&user='.$username.'&artist='.$artist.'&api_key='.$config['api_key'].'&format=json';
 
 $lastSong = getLastSong($lastfmJSON);
+if(isset($lastSong['error']))
+    $error = $lastSong;
 if($debug)
     echo $lastSong['artist'].' - '.$lastSong['song'].' '.$lastSong['date'];
 
@@ -92,8 +103,17 @@ if($debug)
     <section id="intro">
     <header>
         <h2>Last.fm - First time listened to a band </h2>
-        <h3><?php echo $username; ?> first listened to <?php print $lastSong['artist']." - ".$lastSong['song']; ?></h3>
-        <h3><?php echo date('l jS \of F Y h:i:s A', $lastSong['date']); ?></h3>
+        <?php
+            if($error)
+            {
+                echo "<h3>Error: ".$error['message']." </h3>";
+            }
+            else
+            {
+                echo "<h3>".$username." first listened to ".$lastSong['artist']." - ".$lastSong['song']."</h3>";
+                echo "<h3>".date('l jS \of F Y h:i:s A', $lastSong['date'])."</h3>";
+            }
+        ?>
     </header>
         <p>
             <form action="index.php" method='post'>
