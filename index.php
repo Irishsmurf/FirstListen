@@ -73,7 +73,8 @@ $artist = urlencode($artist);
 $lastfmJSON = 'http://ws.audioscrobbler.com/2.0/?method=user.getartisttracks&user='.$username.'&artist='.$artist.'&api_key='.$config['api_key'].'&format=json';
 
 $lastSong = getLastSong($lastfmJSON);
-echo $lastSong['artist'].' - '.$lastSong['song'].' '.$lastSong['date'];
+if($debug)
+    echo $lastSong['artist'].' - '.$lastSong['song'].' '.$lastSong['date'];
 
 ?>
 
