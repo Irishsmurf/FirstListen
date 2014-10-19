@@ -42,7 +42,7 @@ function getLastSong($url)
     else
         $track = $json->{'artisttracks'}->{'track'}[($items % 50) - 1];
 
-    $song['date'] = $track->{'date'}->{'#text'};
+    $song['date'] = $track->{'date'}->{'uts'};
     $song['artist'] = $track->{'artist'}->{'#text'};
     $song['song'] = $track->{'name'};
     $song['album'] = $track->{'album'}->{'#text'};
@@ -93,6 +93,8 @@ echo $lastSong['artist'].' - '.$lastSong['song'].' '.$lastSong['date'];
     <section id="intro">
     <header>
         <h2>Last.fm - First time listened to a band </h2>
+        <h3>You first listened to <?php print $lastSong['artist']; ?></h3>
+        <h3>
     </header>
         <p>
             <form action="index.php" method='post'>
