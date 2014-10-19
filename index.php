@@ -28,7 +28,7 @@ if($debug)
 function getLastSong($url)
 {
     $json = getJson($url);
-    // Need to get Date, Artist & SongName
+    //Getting the number of pages.
     $pagenumber = $json->{'artisttracks'}->{'@attr'}->{'totalPages'};
     $json = getJson($url.'&page='.$pagenumber);
     $items = $json->{'artisttracks'}->{'@attr'}->{'items'};
@@ -36,9 +36,7 @@ function getLastSong($url)
     // If the number of items mod 50 = 1, this means the last page
     // has 1 item and isn't an array.
     if($items % 50 == 1)
-    {
         $track = $json->{'artisttracks'}->{'track'};
-    }
     else
         $track = $json->{'artisttracks'}->{'track'}[($items % 50) - 1];
 
