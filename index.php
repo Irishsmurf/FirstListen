@@ -93,8 +93,8 @@ echo $lastSong['artist'].' - '.$lastSong['song'].' '.$lastSong['date'];
     <section id="intro">
     <header>
         <h2>Last.fm - First time listened to a band </h2>
-        <h3>You first listened to <?php print $lastSong['artist']; ?></h3>
-        <h3>
+        <h3>You first listened to <?php print $lastSong['artist']." - ".$lastSong['song']; ?></h3>
+        <h3><?php echo date('l jS \of F Y h:i:s A', $lastSong['date']); ?></h3>
     </header>
         <p>
             <form action="index.php" method='post'>
