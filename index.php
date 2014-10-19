@@ -4,6 +4,29 @@ error_reporting(E_ALL);
 ini_set('display_errors', '1');
 include_once('config.inc.php');
 
+function getLastSong($json)
+{
+    // Need to get Date, Artist & SongName
+    $pagenumber = $json->{'artisttracks'}->{'@attr'}->{'totalPages'};
+    $items = $json->{'artisttracks'}->{'@attr'}->{'items'};
+    
+    // If the number of items mod 50 = 1, this means the last page
+    // has 1 item and isn't an array.
+    if($items % 50 == 1)
+    {
+        $track = $json->{'artisttracks'}->{'track'};
+    }
+    else
+        $track = $json->{'artisttracks'}->{'track'}[($items % 50) - 1];
+
+    $song['date'] = $track->{'date'}->{'#text'};
+    $song['artist'] = $track->{'artist'}->{'#text'};
+    $song['song'] = $track->{'name'}.' UTC';
+    $song['album'] = $track->{'album'}->{'#text'};
+
+    return $song;
+}
+
 function getJson($url)
 {
     $curl = curl_init($url);
@@ -33,9 +56,8 @@ $decoded = getJson($lastfmJSON);
 $pagenumber = $decoded->{'artisttracks'}->{'@attr'}->{'totalPages'};
 $decoded = getJson($lastfmJSON.'&page='.$pagenumber);
 
-$date = $decoded->{'artisttracks'}->{'track'}[0]->{'date'}->{'#text'};
-
-echo $date.' UTC';
+$lastSong = getLastSong($decoded);
+echo $lastSong['artist'].' - '.$lastSong['song'].' '.$lastSong['date']';
 
 ?>
 
