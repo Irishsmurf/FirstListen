@@ -4,6 +4,17 @@ error_reporting(E_ALL);
 ini_set('display_errors', '1');
 include_once('config.inc.php');
 
+if(isset($_POST['artist']) && isset($_POST['username']))
+{
+    $username = $_POST['username'];
+    $artist = $_POST['artist'];
+}
+else
+{
+    $username = 'Irishsmurf';
+    $artist = 'Brand New';
+}
+
 function getLastSong($json)
 {
     // Need to get Date, Artist & SongName
@@ -45,9 +56,9 @@ function getJson($url)
     return $decoded;
 }
 
-// Placeholders
-$username = 'Irishsmurf';
-$artist = urlencode('Brand New');
+// Make sure the names are URL encoded
+$username = urlencode($username);;
+$artist = urlencode($artist);
 
 $lastfmJSON = 'http://ws.audioscrobbler.com/2.0/?method=user.getartisttracks&user='.$username.'&artist='.$artist.'&api_key='.$config['api_key'].'&format=json';
 
