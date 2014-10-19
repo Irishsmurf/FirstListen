@@ -57,7 +57,7 @@ $pagenumber = $decoded->{'artisttracks'}->{'@attr'}->{'totalPages'};
 $decoded = getJson($lastfmJSON.'&page='.$pagenumber);
 
 $lastSong = getLastSong($decoded);
-echo $lastSong['artist'].' - '.$lastSong['song'].' '.$lastSong['date']';
+echo $lastSong['artist'].' - '.$lastSong['song'].' '.$lastSong['date'];
 
 ?>
 
@@ -72,7 +72,7 @@ echo $lastSong['artist'].' - '.$lastSong['song'].' '.$lastSong['date']';
 <body>
     <div id="content">
     <div id="main-content">
-    <section id=intro">
+    <section id="intro">
     <header>
         <h2>Last.fm - First time listened to a band </h2>
     </header>
