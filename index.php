@@ -15,10 +15,12 @@ else
     $artist = 'Brand New';
 }
 
-function getLastSong($json)
+function getLastSong($url)
 {
+    $json = getJson($url);
     // Need to get Date, Artist & SongName
     $pagenumber = $json->{'artisttracks'}->{'@attr'}->{'totalPages'};
+    $json = getJson($url.'&page='.$pagenumber);
     $items = $json->{'artisttracks'}->{'@attr'}->{'items'};
     
     // If the number of items mod 50 = 1, this means the last page
@@ -62,12 +64,7 @@ $artist = urlencode($artist);
 
 $lastfmJSON = 'http://ws.audioscrobbler.com/2.0/?method=user.getartisttracks&user='.$username.'&artist='.$artist.'&api_key='.$config['api_key'].'&format=json';
 
-$decoded = getJson($lastfmJSON);
-
-$pagenumber = $decoded->{'artisttracks'}->{'@attr'}->{'totalPages'};
-$decoded = getJson($lastfmJSON.'&page='.$pagenumber);
-
-$lastSong = getLastSong($decoded);
+$lastSong = getLastSong($lastfmJSON);
 echo $lastSong['artist'].' - '.$lastSong['song'].' '.$lastSong['date'];
 
 ?>
