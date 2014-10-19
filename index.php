@@ -61,7 +61,7 @@ function getJson($url)
 {
     $curl = curl_init($url);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-
+    curl_setopt($curl, CURLOPT_USERAGENT, 'www.paddez.com/projects/lastfm/first (cURL)');
     $response = curl_exec($curl);
     if($response == false)
     {
