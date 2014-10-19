@@ -83,27 +83,35 @@ echo $lastSong['artist'].' - '.$lastSong['song'].' '.$lastSong['date'];
 <head>
 
     <title> First time listened - Last.fm </title>
-    <link rel="stylesheet" href="https://www.paddez.com/style.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="style.css" type="text/css" media="screen" />
 
 </head>
 
 <body>
-    <div id="content">
-    <div id="main-content">
-    <section id="intro">
-    <header>
-        <h2>Last.fm - First time listened to a band </h2>
+<header id="lastfm">
+        <img src="images/last-fm_logo.png" id="lastlogo"/><h2 id="lastfm"> First time listened to a band </h2>
     </header>
-        <p>
+    
+    <section>
+ 
+    <div id="first_content">
+    
+        <p id="first_input">
             <form action="index.php" method='post'>
-            <input type="text" name="username" placeholder='Irishsmurf'>
-            <input type="text" name="artist" placeholder='Brand New'>
+            <input type="text" name="username" placeholder='Last.fm Username'></br></br>
+            <input type="text" name="artist" placeholder='Artist'>
+            </br></br>
             <input type="submit" value="Submit">
             </form>
         </p>
-    </section>
-    </div>
-    </div>
+         <div id="first_returned"
+    <p> The first time you listened to ARTIST was DAY, DAY MONTH YEAR at TIME</p>
+    <p> The song was SONG</p>
+    </div><!-- end of first_returned"-->
+    </div><!-- end of first content-->
+   
+    
+    </section
    </body>
 
 </html>

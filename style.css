@@ -1,0 +1,307 @@
+@charset "utf-8";
+/* CSS Document */
+
+#fast1 {
+  position: relative;
+  -moz-transition-property: font-size;
+  -moz-transition-duration: 0.5s;
+  -webkit-transition-property: font-size;
+  -webkit-transition-duration: 0.5s;
+  -o-transition-property: font-size;
+  -o-transition-duration: 0.5s;
+  font-size: 14px;
+}
+
+#fast1:hover {
+  position: relative;
+  -moz-transition-property: font-size;
+  -moz-transition-duration: 0.5s;
+  -webkit-transition-property: font-size;
+  -webkit-transition-duration: 0.5s;
+  -o-transition-property: font-size;
+  -o-transition-duration: 0.5s;
+  font-size: 24px;
+}
+
+a.rollover1 {
+	display: block;
+	width: 38px;
+	height: 38px;
+	text-decoration: none;
+	background: url("http://www.redbrick.dcu.ie/~paddez/images/twitter-two.png");
+	}
+
+a.rollover1:hover {
+	background-position: -38px 0;
+	}
+
+.displace {
+	position: absolute;
+	left: -5000px;
+	}
+
+a.rollover2 {
+	display: block;
+	width: 36px;
+	height: 38px;
+	text-decoration: none;
+	background: url("http://www.redbrick.dcu.ie/~paddez/images/facebook-two.png");
+	}
+
+a.rollover2:hover {
+	background-position: -37px 0;
+	}
+
+a.rollover3 {
+	display: block;
+	width: 36px;
+	height: 38px;
+	text-decoration: none;
+	background: url("http://www.redbrick.dcu.ie/~paddez/images/lastfm-two.png");
+	}
+
+a.rollover3:hover {
+	background-position: -37px 0;
+	}
+
+
+
+
+
+{
+	margin: 0;
+	padding: 0;
+}
+
+header, footer, aside, nav, article {
+	display: block;
+}
+
+body {
+	margin: 0 auto;
+	width: 940px;
+	font: 13px/22px Helvetica, Arial, sans-serif;
+	background: #f0f0f0;
+}
+
+h1 {
+	font-size: 18px;
+	text-align: center;
+	color: #777;
+}
+
+h2 {
+	font-size: 28px;
+	line-height: 44px;
+	padding: 22px 0;
+}
+
+h3 {
+	font-size: 18px;
+	line-height: 22px;
+	padding: 11px 0;
+}
+
+p {
+	padding-bottom: 22px;
+}
+
+
+td.label {
+		  width: 100px;
+		  padding-top: 4px;
+		  vertical-align: top;
+}
+
+nav {
+	position: absolute;
+	left: 0;
+	width: 100%;
+	background: url("images/nav_background.png");
+}
+
+	nav ul {
+		margin: 0 auto;
+		width: 940px;
+		list-style: none;
+	}
+
+		nav ul li {
+			float: left;
+		}
+		
+			nav ul li a {
+				display: block;
+				margin-right: 20px;
+				width: 140px;
+				line-height: 44px;
+				text-align: center;
+				text-decoration: none;
+				color: #777;
+  				font-size: 14px;
+			}
+			
+				nav ul li a:hover {
+					color: #fff;
+  					position: relative;
+  					font-size: 22px;
+					text-decoration: underline;
+				}
+			
+			nav ul li.selected a {
+				color: #fff;
+			}
+			
+
+#content {
+	display: table;
+}
+
+	#mainContent {
+		display: table-cell;
+		width: 620px;
+		padding-right: 22px;
+	}
+
+	aside {
+		display: table-cell;
+		width: 300px;
+	}
+footer {
+	position: absolute;
+	left: 0;
+	width: 100%;
+	background: #222;
+}
+
+	footer div {
+		display: table;
+		margin: 0 auto;
+		padding: 85px 0;
+		width: 940px;
+		color: #777;
+	}
+	
+		footer div section {
+			display: table-cell;
+			width: 300px;
+		}
+		
+		footer div #about, footer div #links {
+			padding-right: 20px;
+		}
+		
+	footer h3 {
+		color: #FFF;
+	}
+	
+	footer a {
+		color: #999;
+	}
+	
+		footer a:hover {
+			color: #FFF;
+			text-decoration: none;
+		}
+	
+	footer ul {
+		margin: 0 0 0 40px;
+		list-style: square;
+		color: #565656;
+	}
+	
+		footer ul li a {
+			display: block;
+		}
+		
+div.topbanner {
+	position: absolute;
+	left: 0;
+	width: 100%;
+	background: url("images/title_background.png");
+}
+
+div.panel, div.flip
+{
+	margin:0px;
+	height:20px;
+	padding:5px;
+	background:#f0f0f0;
+	
+}
+div.flip
+{
+	border:solid 1px;
+}
+
+div.panel
+{
+	border:solid 1px;
+	height:170px;
+	display:none;
+}
+
+header#lastfm
+{
+background-color: #e31b23;
+box-shadow: rgba(0,0,0,0.3) 0 2px 5px;
+background-image: linear-gradient(#e31b23, #b32024);
+height: 110px;
+
+
+}
+#lastlogo
+{
+margin: 20px 30px 50px 200px;
+padding-bottom: 20px;
+float: left;	
+	
+	
+}
+
+h2#lastfm{
+float: right;
+margin-right: 50px;	
+	
+
+#first_content{
+	font-family: Arial, Helvetica, sans-serif;
+	background-color: white;
+	box-shadow: rgba(0,0,0,0.3) 0 2px 5px;
+	width: 80%;
+	min-width: 500px;
+	margin: 20px 10% 20px 5%;
+	height: 70%;
+	}
+	
+	
+input{
+	border-radius: 10px;
+	width: 180px;
+	height: 25px;
+	font-size: 12pt;
+	text-align: center;
+	margin: 5px 20% 5px 10%;
+	float: left;
+	
+}	
+input[type=submit] {
+	background-color: #e31b23;
+	background-image: linear-gradient(#e31b23, #b32024);
+	height: 30px;
+	color: white;
+	
+	
+}
+#first_returned{
+position: relative;
+	float:right;
+	width: 375px;
+	margin: -150px 30px 10px 10px;
+	font-size: 15pt;
+	line-height: 40px;
+	
+	
+}
+	
+	
