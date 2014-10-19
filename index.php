@@ -93,11 +93,12 @@ if($debug)
 <head>
 
     <title> First time listened - Last.fm </title>
-    <link rel="stylesheet" href="https://www.paddez.com/style.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="style.css" type="text/css" media="screen" />
 
 </head>
 
 <body>
+<<<<<<< HEAD
     <div id="content">
     <div id="main-content">
     <section id="intro">
@@ -114,17 +115,37 @@ if($debug)
                 echo "<h3>".date('l jS \of F Y h:i:s A', $lastSong['date'])."</h3>";
             }
         ?>
+=======
+<header id="lastfm">
+        <img src="images/last-fm_logo.png" id="lastlogo"/><h2 id="lastfm"> First time listened to a band </h2>
+>>>>>>> 4681e039b26adab7526e04db346b003a7e854a84
     </header>
-        <p>
+    
+    <section>
+ 
+    <div id="first_content">
+    
+        <p id="first_input">
             <form action="index.php" method='post'>
+<<<<<<< HEAD
             <input type="text" name="username" placeholder='Username'>
             <input type="text" name="artist" placeholder='Artist'>
+=======
+            <input type="text" name="username" placeholder='Last.fm Username'></br></br>
+            <input type="text" name="artist" placeholder='Artist'>
+            </br></br>
+>>>>>>> 4681e039b26adab7526e04db346b003a7e854a84
             <input type="submit" value="Submit">
             </form>
         </p>
-    </section>
-    </div>
-    </div>
+         <div id="first_returned"
+    <p> The first time you listened to ARTIST was DAY, DAY MONTH YEAR at TIME</p>
+    <p> The song was SONG</p>
+    </div><!-- end of first_returned"-->
+    </div><!-- end of first content-->
+   
+    
+    </section
    </body>
 
 </html>
