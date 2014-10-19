@@ -117,8 +117,8 @@ if($debug)
     </header>
         <p>
             <form action="index.php" method='post'>
-            <input type="text" name="username" placeholder='Irishsmurf'>
-            <input type="text" name="artist" placeholder='Brand New'>
+            <input type="text" name="username" placeholder='Username'>
+            <input type="text" name="artist" placeholder='Artist'>
             <input type="submit" value="Submit">
             </form>
         </p>
