@@ -1,26 +1,41 @@
 <?php
 
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
 include_once('config.inc.php');
-$username = 'Irishsmurf';
-$artist = 'Muse';
-$apiKey = 'd7b0847df10e843f04f691b36736ee28';
-$lastfmJSON = 'http://ws.audioscrobbler.com/2.0/?method=user.getartisttracks&user='.$username.'&artist='.$artist.'&api_key='.$apiKey.'&format=json';
 
-
-$curl = curl_init($lastfmJSON);
-curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-
-$response = curl_exec($curl);
-if($response == false)
+function getJson($url)
 {
-    $info = curl_getinfo($curl);
+    $curl = curl_init($url);
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+
+    $response = curl_exec($curl);
+    if($response == false)
+    {
+        $info = curl_getinfo($curl);
+        curl_close($curl);
+        die('Error: '.var_export($info));
+    }
+
     curl_close($curl);
-    die('Error: '.var_export($info));
+    $decoded = json_decode($response);
+    return $decoded;
 }
 
-curl_close($curl);
-echo $response;
+// Placeholders
+$username = 'Irishsmurf';
+$artist = 'Muse';
 
+$lastfmJSON = 'http://ws.audioscrobbler.com/2.0/?method=user.getartisttracks&user='.$username.'&artist='.$artist.'&api_key='.$config['api_key'].'&format=json';
+
+$decoded = getJson($lastfmJSON);
+
+$pagenumber = $decoded->{'artisttracks'}->{'@attr'}->{'totalPages'};
+$decoded = getJson($lastfmJSON.'&page='.$pagenumber);
+
+$date = $decoded->{'artisttracks'}->{'track'}[0]->{'date'}->{'#text'};
+
+echo $date.' UTC';
 
 ?>
 
